@@ -1,0 +1,8 @@
+services:
+  #dbコンテナ
+  db:
+    image: mariadb:10.9
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+    volumes:
+      -db-data:/var/lib/mysql
