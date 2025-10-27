@@ -3,6 +3,21 @@ services:
   db:
     image: mariadb:10.9
     environment:
-      MARIADB_ROOT_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       -db-data:/var/lib/mysql
+
+  #webコンテナ
+  web:
+    build: .
+    depend_on:
+      - db
+    environment:
+      DATABASE_PASSWORD: ${DB_ROOT_PASSWORD}
+    ports:
+      - "3000:3000"
+    volumes:
+      -.:/task_management
+volumes:
+  db-data:
+
