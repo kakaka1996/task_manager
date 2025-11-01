@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# サーバーを 0.0.0.0（すべてのIP）で起動
+bin/rails server -b 0.0.0.0
