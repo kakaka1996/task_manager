@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root 'static_pages#top'
+  root 'user_session#new'
   # ↓ユーザーの新規登録へのルーティング↓
   resources :users, only: %i[new create]
   get 'login' => 'user_session#new'
